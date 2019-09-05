@@ -22,6 +22,8 @@ public class PromotionSetA implements Promotion {
   public DiscountDetails calculateDiscount(ProductDetails productDetails) {
     List<DiscountDetails> discountsAvailable = new ArrayList<>();
 
+    // TODO: Need to refactor this class to make it cleaner, readable
+
     if ("Africa".equals(productDetails.getOrigin())) {
       Double discountAmount = 0.07 * productDetails.getPrice();
       String discountTag = "get 7% off";

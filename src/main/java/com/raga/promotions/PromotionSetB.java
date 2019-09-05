@@ -20,6 +20,8 @@ public class PromotionSetB implements Promotion {
   public DiscountDetails calculateDiscount(ProductDetails productDetails) {
     List<DiscountDetails> discountsAvailable = new ArrayList<>();
 
+    // TODO: Need to refactor this class to make it cleaner, readable
+
     if (productDetails.getInventory() > 20) {
       Double discountAmount = 0.12 * productDetails.getPrice();
       String discountTag = "get 12% off";
