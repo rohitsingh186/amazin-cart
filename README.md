@@ -1,2 +1,6 @@
 # amazin-cart
-A sample e-commerce site to show product details and the discounts applied according to the business rules
+#### How to run the application
+
+````
+java -jar target\amazincart-1.0-SNAPSHOT.jar --spring.profiles.active={promotionSetA/promotionSetB}
+````
