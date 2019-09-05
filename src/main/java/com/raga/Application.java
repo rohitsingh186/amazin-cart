@@ -1,5 +1,6 @@
 package com.raga;
 
+import com.raga.service.DiscountingService;
 import com.raga.service.PriceConversionService;
 import com.raga.service.ProductRetrieverService;
 import com.raga.vo.ProductDetails;
@@ -15,12 +16,16 @@ public class Application implements CommandLineRunner {
 
   private final ProductRetrieverService productRetrieverService;
   private final PriceConversionService priceConversionService;
+  private final DiscountingService discountingService;
 
   @Autowired
   public Application(ProductRetrieverService productRetrieverService,
-                     PriceConversionService priceConversionService) {
+                     PriceConversionService priceConversionService,
+                     DiscountingService discountingService) {
+
     this.productRetrieverService = productRetrieverService;
     this.priceConversionService = priceConversionService;
+    this.discountingService = discountingService;
   }
 
   public static void main(String[] args) {
@@ -36,6 +41,9 @@ public class Application implements CommandLineRunner {
 
     List<ProductDetails> productDetailsWithPriceInInr = this.priceConversionService
       .convertPriceToIndianRupee(productDetails);
+
+    this.discountingService
+      .calculateDiscountForProducts(productDetailsWithPriceInInr);
 
     System.out.println("************** Hey ! See I finished ! Yeay ! **************");
   }
